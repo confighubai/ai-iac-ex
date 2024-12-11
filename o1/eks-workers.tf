@@ -34,13 +34,6 @@ resource "aws_iam_role_policy_attachment" "ecr_readonly_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
-data "aws_subnets" "public" {
-  filter {
-    name   = "tag:Name"
-    values = ["public-subnet-1", "public-subnet-2"]
-  }
-}
-
 resource "aws_eks_node_group" "this" {
   cluster_name  = aws_eks_cluster.this.name
   node_role_arn = aws_iam_role.eks_node_group_role.arn
