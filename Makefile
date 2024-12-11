@@ -22,7 +22,7 @@ validate:
 plan:
 	@for dir in $(SUBDIRS); do \
 		echo "Planning $$dir..."; \
-		( cd $$dir && $(TF) plan -out=tfplan ); \
+		( cd $$dir && $(TF) plan -no-color -out=tfplan ); \
 	done
 
 apply:
