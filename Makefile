@@ -34,5 +34,5 @@ apply:
 clean:
 	@for dir in $(SUBDIRS); do \
 		echo "Cleaning $$dir..."; \
-		( cd $$dir && rm -f tfplan ); \
+		( cd $$dir && rm -f .terraform/ .terraform.lock.hcl tfplan ); \
 	done
